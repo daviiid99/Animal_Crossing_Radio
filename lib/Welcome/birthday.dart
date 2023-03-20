@@ -35,10 +35,11 @@ class Birthday extends StatelessWidget with Control{
 
   Future<List<String>> generateYears() async {
     // This method generates a list of days
-    for (int i = 1913; years.length < 100; i++){
+    for (int i = 1913; years.length < 105; i++){
       years.add(i.toString());
     }
-    return years;
+
+    return years.reversed.toList();
   }
 
   daysDialog(List<String> years){
@@ -46,7 +47,8 @@ class Birthday extends StatelessWidget with Control{
         context: context,
         builder: (BuildContext context) {
             return AlertDialog(
-                scrollable: true,
+              scrollable: true,
+              backgroundColor: Colors.transparent,
                 content: SizedBox(
                     width: double.maxFinite,
                     height: double.maxFinite,
@@ -107,6 +109,7 @@ class Birthday extends StatelessWidget with Control{
         context: context,
         builder: (BuildContext context) {
                 return AlertDialog(
+                backgroundColor: Colors.transparent,
                 scrollable: true,
                 content: SizedBox(
                     width : double.maxFinite,
@@ -165,6 +168,7 @@ class Birthday extends StatelessWidget with Control{
         context: context,
         builder: (BuildContext context) {
             return AlertDialog(
+                backgroundColor: Colors.transparent,
                 scrollable: true,
                 content: SizedBox(
                     width: double.maxFinite,

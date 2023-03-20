@@ -292,10 +292,10 @@ class WelcomeState extends State<Welcome> with Control{
 
                 // Widgets
                 if (chooseName)
-                  name.enterNameDialog(),
+                  name,
 
                 if (chooseGenre)
-                  genre.chooseCharacter(),
+                  genre,
 
                 if (chooseBirthday)
                   birthday,
