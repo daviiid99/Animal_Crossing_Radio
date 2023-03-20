@@ -18,6 +18,7 @@ import '../DataBases/pocket.dart';
 import '../Store/store.dart';
 import '../android/strings/strings.dart';
 import '../Announcement/announcement.dart';
+import '../DataBases/announcement.dart';
 
 class Home extends StatefulWidget{
   @override
@@ -68,9 +69,9 @@ class HomeState extends State<Home> with Control{
   User user = User(name: "name", picture: "picture", genre: "genre", date_of_birth: "date_of_birth", bells: 0, library: "library");
   Settings settings = Settings();
   Map<String,dynamic> userPockets = {};
+  AnnouncementDataBase announcementDataBase = AnnouncementDataBase(date : "");
   Announcement announcement = Announcement();
-
-
+  String currentDate = "";
   bool choosedOption = false;
 
   @override
@@ -80,7 +81,42 @@ class HomeState extends State<Home> with Control{
     checkUser();
     checkDataBase();
     readPocket();
+    checkAnnouncements();
+    checkUser();
     super.initState();
+  }
+
+  checkAnnouncements() async {
+    // Check if Isabelle already did an announcement today
+    // To achieve that, we'll read current database
+
+    List<String> dates = [];
+
+    compareDates(List<String> dates) async {
+      // Compare dates
+      if (dates.isEmpty || dates.contains(currentDate) == false){
+        // add current date
+        AnnouncementDataBase newDate = AnnouncementDataBase(date: currentDate);
+        announcementDataBase.insertRowIntoTable(newDate);
+
+        Navigator.push(context, MaterialPageRoute(builder: (context) => announcement));
+      }
+    }
+
+    // First, get current date from local device
+    setState(() async  {
+      currentDate = "${DateTime.now().day}/${DateTime.now().month}/${DateTime.now().year}";
+
+    // Then, recover database existing dates
+    try {
+      dates =  await announcementDataBase.retrieveDates();
+      compareDates(dates);
+    } catch (e){
+      announcementDataBase.createTable();
+      compareDates(dates);
+    }
+    });
+
   }
 
   checkUser(){
@@ -88,8 +124,6 @@ class HomeState extends State<Home> with Control{
     if (userName.isEmpty){
       Navigator.push(context,
           MaterialPageRoute(builder: (context) => welcome));
-    } else {
-      Navigator.push(context, MaterialPageRoute(builder: (context) => announcement));
     }
   }
 
