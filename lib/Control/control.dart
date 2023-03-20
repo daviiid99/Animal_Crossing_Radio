@@ -14,4 +14,10 @@ abstract class Control {
     Navigator.pop(context);
     return true;
   }
+
+  hotReload(BuildContext context){
+    // This is an internal way used for hot reload current widget
+    // Useful to refresh widgets inside StatelessWidget class
+    (context as Element).reassemble();
+  }
 }

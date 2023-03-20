@@ -249,7 +249,9 @@ class AnnouncementState extends State with Control{
 
   @override
   Widget build(BuildContext context){
-    return Scaffold(
+    return  WillPopScope(
+      onWillPop: () => stopServices(player, context),
+      child : Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -269,6 +271,7 @@ class AnnouncementState extends State with Control{
           // Cursor
           navigationCursor(),
         ],
+      ),
       ),
     );
   }

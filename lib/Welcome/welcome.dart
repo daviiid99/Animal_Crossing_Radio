@@ -298,7 +298,7 @@ class WelcomeState extends State<Welcome> with Control{
                   genre.chooseCharacter(),
 
                 if (chooseBirthday)
-                  birthday.dateWidget(),
+                  birthday,
 
               ]
             )
