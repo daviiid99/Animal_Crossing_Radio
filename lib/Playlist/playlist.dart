@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:audioplayers/audioplayers.dart';
-import '../DataBases/songs.dart';
-import '../Preview/preview.dart';
+import '../Dependencies/dependencies.dart';
+import '../Screens/screen.dart';
 
 class Playlist extends StatefulWidget{
   @override
@@ -131,8 +130,8 @@ class PlaylistState extends State<Playlist>{
     Songs database = Songs(name: "name", uri: "uri", logo: "logo", title: "title");
 
     temp = await database.retrieveSongs(); // Catch all songs
-    setState(() async {
-      songs = await chooseCurrentDiscSongs(temp);
+    setState(() {
+      songs = chooseCurrentDiscSongs(temp);
       getPlayListSongs();
     });
 
@@ -143,9 +142,7 @@ class PlaylistState extends State<Playlist>{
       child: ListView.builder(
           itemCount: songsTitle.length,
           itemBuilder: (context, index){
-            return Column(
-              children: [
-                InkWell(
+            return InkWell(
                   onTap : (){},
                   child : ClipRRect(
                     borderRadius: BorderRadius.circular(15),
@@ -155,29 +152,24 @@ class PlaylistState extends State<Playlist>{
                         Navigator.push(context,
                         MaterialPageRoute(builder: (context) => songPreview));
                        },
-                      child : Card(
-                    shadowColor: Colors.grey,
-                    color: Colors.white,
-                    child: Row(
-                      children: [
-                        ListTile(
-                          leading: Image.asset(disc),
-                          title: Row(children: [Text(songsTitle[index], style: const TextStyle(color: Colors.black, fontSize: 25, fontWeight: FontWeight.bold)), const Spacer(),],),
-                          subtitle: Text("Animal Crossing : $game", style: const TextStyle(color: Colors.black)),
-                          trailing: IconButton(
-                            icon: const Icon(Icons.play_arrow_rounded, color: Colors.white,),
-                            onPressed: () {
-
-                            },),
+                      child : SizedBox(
+                        width: 300,
+                        height: 100,
+                        child : Card(
+                          shadowColor: Colors.grey,
+                          color: Colors.white,
+                          child: Center(
+                            child : ListTile(
+                              leading: Image.asset(disc),
+                              title: Row(children: [Text(songsTitle[index], style: const TextStyle(color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold)), const Spacer(),],),
+                              subtitle: Text("Animal Crossing : $game", style: const TextStyle(color: Colors.black)),
+                            )
+                          ),
                         )
-                        ]
+                      ),
                     )
                   )
-                    )
-                  )
-                )
-                    ],
-                  );
+                );
             },
       )
     );

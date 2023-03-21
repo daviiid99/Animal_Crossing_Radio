@@ -1,7 +1,7 @@
 import 'package:animal_crossing_radio/Control/control.dart';
 import 'package:flutter/material.dart';
 import 'package:audioplayers/audioplayers.dart';
-import '../DataBases/users.dart';
+import '../Screens/screen.dart';
 
 class Announcement extends StatefulWidget{
   const Announcement({super.key});

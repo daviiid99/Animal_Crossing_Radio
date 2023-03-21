@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import '../Data/items.dart';
-import '../Data/pockets.dart';
-import '../DataBases/item.dart';
-import '../DataBases/pocket.dart';
+import '../Screens/screen.dart';
 
 class Pocket extends StatefulWidget{
   @override

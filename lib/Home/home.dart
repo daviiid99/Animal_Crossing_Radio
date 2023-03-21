@@ -1,24 +1,11 @@
+import 'package:animal_crossing_radio/LoginScreen/loginScreen.dart';
 import 'package:animal_crossing_radio/main.dart';
 import 'package:flutter/material.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/services.dart';
-import '../Control/control.dart';
-import '../DataBases/songs.dart';
-import '../Data/songs.dart';
-import '../Data/pockets.dart';
+import '../Screens/screen.dart';
 import 'init.dart';
-import '../Welcome/welcome.dart';
-import '../Settings/settings.dart';
-import '../DataBases/users.dart';
-import '../Profile/profile.dart';
 import 'dart:math';
-import '../Stage/tota.dart';
-import '../Pocket/pocket.dart';
-import '../DataBases/pocket.dart';
-import '../Store/store.dart';
-import '../android/strings/strings.dart';
-import '../Announcement/announcement.dart';
-import '../DataBases/announcement.dart';
 
 class Home extends StatefulWidget{
   @override
@@ -83,6 +70,7 @@ class HomeState extends State<Home> with Control{
     readPocket();
     checkAnnouncements();
     checkUser();
+    Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen()));
     super.initState();
   }
 
@@ -99,7 +87,7 @@ class HomeState extends State<Home> with Control{
         AnnouncementDataBase newDate = AnnouncementDataBase(date: currentDate);
         announcementDataBase.insertRowIntoTable(newDate);
 
-        Navigator.push(context, MaterialPageRoute(builder: (context) => announcement));
+        //Navigator.push(context, MaterialPageRoute(builder: (context) => announcement));
       }
     }
 

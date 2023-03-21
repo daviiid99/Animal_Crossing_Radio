@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 // Titles, buttons,..
 
 // Title Screen
-const String versionText = "v1.0";
-const String versionDateText = "Mar 16";
+const String versionText = "v1.0-dev";
+const String versionDateText = "Mar 20";
 const String empezarText = "Empezar";
 const String novedadesText = "Novedades";
 const String licenciasText = "Licencias";

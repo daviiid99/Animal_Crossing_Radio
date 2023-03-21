@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import '../Data/kk_songs.dart';
-import '../DataBases/kk.dart';
+import '../Screens/screen.dart';
 
 class Tota extends StatefulWidget{
   @override

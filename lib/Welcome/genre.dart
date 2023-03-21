@@ -20,6 +20,7 @@ class Genre extends StatelessWidget with Control{
             Stack(
               children  : [
 
+
                 if (isBoy && onTap)
                   ClipRRect(
                       borderRadius: BorderRadius.circular(25),

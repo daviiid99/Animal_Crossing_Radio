@@ -1,5 +1,4 @@
-import 'package:sqflite/sqflite.dart';
-import 'package:async/async.dart';
+import '../Dependencies/dependencies.dart';
 
 class KK{
   KK({

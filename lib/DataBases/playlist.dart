@@ -1,9 +1,7 @@
-import 'package:sqflite/sqflite.dart';
-import 'package:async/async.dart';
-import 'package:path/path.dart';
+import '../Dependencies/dependencies.dart';
 
-class Playlist{
-  const Playlist({
+class PlaylistDataBase{
+  const PlaylistDataBase({
     required this.name,
     required this.song,
 });
@@ -30,7 +28,7 @@ class Playlist{
     };
   }
 
-  insertPlaylistValues(Playlist playlist) async {
+  insertPlaylistValues(PlaylistDataBase playlist) async {
     // A method to add values into a playlist
     final Database db = await openDatabase("playlist");
 

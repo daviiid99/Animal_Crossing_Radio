@@ -1,4 +1,4 @@
-import 'package:animal_crossing_radio/Control/control.dart';
+import '../Screens/screen.dart';
 import 'package:flutter/material.dart';
 import 'package:audioplayers/audioplayers.dart';
 

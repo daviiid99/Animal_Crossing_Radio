@@ -1,6 +1,4 @@
-import 'package:sqflite/sqflite.dart';
-import 'package:async/async.dart';
-import 'package:path/path.dart';
+import '../Dependencies/dependencies.dart';
 
 class User {
 

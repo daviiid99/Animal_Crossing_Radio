@@ -1,12 +1,7 @@
-import 'package:animal_crossing_radio/Control/control.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import '../DataBases/users.dart';
-import '../Home/home.dart';
-import '../Welcome/welcome.dart';
-import '../android/styles/styles.dart';
-import '../android/strings/strings.dart';
-import '../android/images.dart';
+import '../Screens/screen.dart';
+
 
 class TitleScreen extends StatefulWidget{
   @override
@@ -162,7 +157,7 @@ class TitleScreenState extends State<TitleScreen> with Control{
                     bottomRight: Radius.circular(40),),
                     child : Container(
                       width : double.maxFinite,
-                      height :  325,
+                      height :  260,
                       decoration: BoxDecoration(
                           color: titleScreenColor,
                         image: DecorationImage(
