@@ -34,3 +34,6 @@ export '../Welcome/welcome.dart';
 export '../LoginScreen/widgets/backgroundWdg.dart';
 export '../LoginScreen/widgets/formWdg.dart';
 export '../LoginScreen/widgets/bannerWdg.dart';
+export '../DataBases/register.dart';
+export '../LoginScreen/checkUsers.dart';
+export '../LoginScreen/widgets/footerWdg.dart';

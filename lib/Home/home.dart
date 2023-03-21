@@ -70,7 +70,6 @@ class HomeState extends State<Home> with Control{
     readPocket();
     checkAnnouncements();
     checkUser();
-    Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen()));
     super.initState();
   }
 
