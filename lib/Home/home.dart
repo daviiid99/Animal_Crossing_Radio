@@ -65,7 +65,7 @@ class HomeState extends State<Home> with Control{
     player.pause();
     checkDataBase();
     readPocket();
-    checkAnnouncements();
+    //checkAnnouncements();
     super.initState();
   }
 
