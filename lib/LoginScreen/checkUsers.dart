@@ -8,7 +8,7 @@ class CheckUsers{
 
   static readDataBaseUsers() async {
     // Check if user is registered in database
-    Map<String,dynamic> users = {};
+    List<Register> users = [];
 
     try {
       users = await register.retrieveUsers();
@@ -23,25 +23,33 @@ class CheckUsers{
   static verifyUser(String userName, String userPassword) async {
     // Verify entered userName and password
     bool isLoginPassed = false;
+    bool userExists = false;
     String log = "";
 
-    Map<String,dynamic> users = {};
+    List<Register> users = [];
     users = await register.retrieveUsers();
 
-    if(users.containsKey(userName)){
-      if (users[userName] == userPassword){
-        // Verified!
-        isLoginPassed = true;
-        log = "success";
-
-      } else {
-        log = "bad_password";
-        isLoginPassed = false;
+    for (Register user in users) {
+      if (user.userName == userName) {
+        userExists = true;
+        if (user.userPassword == userPassword) {
+          // Verified!
+          isLoginPassed = true;
+          log = "success";
+        } else {
+          log = "bad_password";
+          isLoginPassed = false;
+        }
       }
-    } else {
+    }
+
+    if (!userExists) {
       log = "unknown_name";
     }
-    return log;
+
+      return log;
+
+
   }
 
   static registerUser(String userName, String userPassword, int keepLogin) async {

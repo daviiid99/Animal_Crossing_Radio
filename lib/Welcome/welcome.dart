@@ -248,7 +248,7 @@ class WelcomeState extends State<Welcome> with Control{
     creation.createTable(user);
     Map<String, dynamic> users = await user.retrieveUser();
     Home home = Home(userName: users.keys.first, userPicture: users[users.keys.first][0], userDate: users[users.keys.first][2], userGenre: users[users.keys.first][1], userBells: 500,);
-    Navigator.push(context, MaterialPageRoute(builder: (context) => home));
+    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => home));
   }
 
 

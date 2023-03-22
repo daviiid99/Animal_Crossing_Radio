@@ -77,16 +77,21 @@ class HomeState extends State<Home> with Control{
     // Check if Isabelle already did an announcement today
     // To achieve that, we'll read current database
 
-    List<String> dates = [];
+    List<AnnouncementDataBase> dates = [];
 
-    compareDates(List<String> dates) async {
+    compareDates(List<AnnouncementDataBase> dates) async {
       // Compare dates
-      if (dates.isEmpty || dates.contains(currentDate) == false){
+      bool dateExists = false;
+      dates.forEach((date) {
+        if (date.date == currentDate) dateExists = true;
+      });
+
+      if (dates.isEmpty || !dateExists){
         // add current date
         AnnouncementDataBase newDate = AnnouncementDataBase(date: currentDate);
         announcementDataBase.insertRowIntoTable(newDate);
 
-        //Navigator.push(context, MaterialPageRoute(builder: (context) => announcement));
+        Navigator.push(context, MaterialPageRoute(builder: (context) => announcement));
       }
     }
 

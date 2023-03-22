@@ -26,6 +26,12 @@ class Register {
     };
   }
 
+  factory Register.fromMap(Map<String,dynamic> map) => Register(
+    userName: map["userName"],
+    userPassword: map["userPassword"],
+    keepLogin: map["keepLogin"]
+  );
+
   void createTable() async {
     // A simple method to create a table of users
     final Database db = await openDatabase("songs.db");
@@ -41,18 +47,17 @@ class Register {
         user.toMap());
   }
 
-  Future<Map<String,dynamic>> retrieveUsers() async {
+  Future<List<Register>> retrieveUsers() async {
     // A simple method to retrieve users from database
 
-    Map<String,dynamic> getUsers(List<Map<String,dynamic>> rawUsers) {
+    List<Register> getUsers(List<Map<String,dynamic>> rawUsers) {
       // Read the list of users and get a list of users
-      Map<String,dynamic> users = {};
+      List<Register> users = [];
+      Register currentUser = Register(userName: "userName", userPassword: "userPassword", keepLogin: 0);
 
       for (Map<String,dynamic> user in rawUsers){
-        if(!users.containsKey(user["userName"])){
-          users[user["userName"]] =  [];
-          users[user["userName"]] =  [user["userPassword"], user["keepLogin"]];
-        }
+        currentUser = Register.fromMap(user);
+        users.add(currentUser);
       }
 
       return users;
@@ -60,7 +65,7 @@ class Register {
 
     final Database db = await openDatabase("songs.db");
     List<Map<String,dynamic>> rawUsers = await db.query("register");
-    Map<String,dynamic> users = getUsers(rawUsers);
+    List<Register> users = getUsers(rawUsers);
 
     return users;
   }

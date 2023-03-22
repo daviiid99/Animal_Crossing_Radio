@@ -20,6 +20,12 @@ class AnnouncementDataBase{
     };
   }
 
+  factory AnnouncementDataBase.fromMap(Map<String,dynamic> map){
+    return AnnouncementDataBase(
+      date : map["date"],
+    );
+  }
+
   createTable() async {
     // A simple method to create the announcements table
     final Database db = await openDatabase("songs.db");
@@ -36,15 +42,17 @@ class AnnouncementDataBase{
         date.toMap());
   }
 
-  Future<List<String>> retrieveDates() async {
+  Future<List<AnnouncementDataBase>> retrieveDates() async {
     // A method to retrieve all existing dates in database
 
-    List<String> addDateToList(List<Map<String, dynamic>> rawDates) {
-      List<String> dates = [];
+    List<AnnouncementDataBase> addDateToList(List<Map<String, dynamic>> rawDates) {
+      List<AnnouncementDataBase> dates = [];
+      AnnouncementDataBase currentAnnounce = AnnouncementDataBase(date: "date");
 
       for (Map<String, dynamic> date in rawDates) {
-        if (!dates.contains(date[date.keys.first])) {
-          dates.add(date[date.keys.first]);
+        currentAnnounce = AnnouncementDataBase.fromMap(date);
+        if (!dates.contains(currentAnnounce)){
+          dates.add(currentAnnounce);
         }
       }
 
@@ -53,7 +61,7 @@ class AnnouncementDataBase{
 
     final Database db = await openDatabase("songs.db");
     List<Map<String,dynamic>> rawDates = await db.query("announcements");
-    List<String> dates = await  addDateToList(rawDates);
+    List<AnnouncementDataBase> dates = await  addDateToList(rawDates);
 
     return dates;
   }
