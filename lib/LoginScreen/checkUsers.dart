@@ -4,7 +4,7 @@ import 'package:meta/meta.dart';
 
 class CheckUsers{
 
-  static Register register = Register(userName: "userName", userPassword: "userPassword");
+  static Register register = Register(userName: "userName", userPassword: "userPassword", keepLogin: 0);
 
   static readDataBaseUsers() async {
     // Check if user is registered in database
@@ -44,9 +44,9 @@ class CheckUsers{
     return log;
   }
 
-  static registerUser(String userName, String userPassword) async {
+  static registerUser(String userName, String userPassword, int keepLogin) async {
     // Create an entry for given user and password
-    Register newUser = Register(userName: userName, userPassword: userPassword);
+    Register newUser = Register(userName: userName, userPassword: userPassword, keepLogin: keepLogin);
     register.insertRowIntoTable(newUser);
 
     return true;

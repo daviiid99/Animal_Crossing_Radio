@@ -4,21 +4,25 @@ class Register {
   Register({
     required this.userName,
     required this.userPassword,
+    required this.keepLogin,
 });
 
   final String userName;
   final String userPassword;
+  final int keepLogin;
 
   static const registerTable = """
     CREATE TABLE IF NOT EXISTS register(
       userName TEXT PRIMARY KEY,
-      userPassword TEXT);
+      userPassword TEXT,
+      keepLogin INTEGER);
   """;
 
   Map<String,dynamic> toMap(){
     return {
       "userName" : userName,
-      "userPassword" : userPassword
+      "userPassword" : userPassword,
+      "keepLogin" : keepLogin
     };
   }
 
@@ -46,8 +50,8 @@ class Register {
 
       for (Map<String,dynamic> user in rawUsers){
         if(!users.containsKey(user["userName"])){
-          users[user["userName"]] =  "";
-          users[user["userName"]] =  user["userPassword"];
+          users[user["userName"]] =  [];
+          users[user["userName"]] =  [user["userPassword"], user["keepLogin"]];
         }
       }
 

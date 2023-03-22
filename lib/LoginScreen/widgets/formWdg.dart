@@ -50,6 +50,10 @@ class FormWdg extends StatelessWidget{
             FormFields(mainContext: context,),
             const SizedBox(height: 20,),
 
+            // Switch Button
+            //FormSwitch(),
+            //const SizedBox(height: 20,),
+
             // Button
             button,
             const SizedBox(height: 20,),
@@ -162,6 +166,28 @@ class FormFields extends StatelessWidget with Control{
   }
 }
 
+class FormSwitch extends StatelessWidget{
+
+  static bool keepLogin = false;
+
+  @override
+  Widget build(BuildContext context){
+    return Row(
+      children: [
+        const Spacer(),
+        SwitchListTile.adaptive(
+            title: Text("Recordar", textAlign: TextAlign.left,),
+            value: keepLogin,
+            activeColor: Colors.blueAccent,
+            onChanged: (value){
+              // TO-DO
+        }),
+        const Spacer(),
+      ],
+    );
+  }
+}
+
 class FormNavBarButton extends StatelessWidget with Control{
 
   FormNavBarButton({
@@ -235,7 +261,7 @@ class FormNavBarButton extends StatelessWidget with Control{
                   }
                 } else {
                   if(FormFields.password.text.toString().isNotEmpty && FormFields.name.text.toString().isNotEmpty)
-                  success = await CheckUsers.registerUser(FormFields.name.text.toString(), FormFields.password.text.toString());
+                  success = await CheckUsers.registerUser(FormFields.name.text.toString(), FormFields.password.text.toString(), FormSwitch.keepLogin ? 1 : 0);
                   if (success){
                     FormFields.nameErrorMessage = "";
                     FormFields.passwordErrorMessage = "";
