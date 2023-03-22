@@ -4,43 +4,71 @@ import '../Screens/screen.dart';
 
 
 class TitleScreen extends StatefulWidget{
+   TitleScreen({
+    required this.userNameLogin,
+    super.key,
+    this.usersData,
+});
+
+  final String userNameLogin;
+  List<User>? usersData = [];
+
   @override
-  TitleScreenState createState()=> TitleScreenState();
+  TitleScreenState createState()=> TitleScreenState(userNameLogin: userNameLogin, usersData :  usersData);
 }
 
 class TitleScreenState extends State<TitleScreen> with Control{
+   TitleScreenState({
+    required this.userNameLogin,
+     this.usersData,
+});
+
+  final String userNameLogin;
+  List<User>? usersData = [];
 
   List<String> buttonsName = [novedadesText, licenciasText, sobreText,];
   List<Color> buttonsColor = [newsButtonColor, licenseButtonColor, aboutButtonColor];
+  bool userMatches = false;
+  String userName = "";
+  String userPicture = "";
+  String userDate = "";
+  String userGenre = "";
+  int userBells = 0;
+  List<User> users = [];
 
-  Map<String, dynamic> users = {};
-  User user = User(name: "name", picture: "picture", genre: "genre", date_of_birth: "date_of_birth", bells: 0, library: "library");
+   assignUserToLogin() async {
+      // We need to compare every user with current login user
+     // If no user matches current login, a new user will be created
 
-  getUsers() async {
-    // Get all users from database
-    try {
-      setState(() async {
-        users = await user.retrieveUser();
-      });
-    } catch (e){
-      print(e);
-    }
-  }
+       for(User user in usersData!){
+         if (user.userID == userNameLogin){
+           setState(() {
+             userMatches = true;
+             userName = user.name;
+             userPicture = user.picture;
+             userDate = user.dateOfBirth;
+             userGenre = user.genre;
+             userBells = user.bells;
+           });
+         }
+       }
+
+   }
 
   @override
   void initState(){
     enablefullScreenMode();
-    getUsers();
+    assignUserToLogin();
     super.initState();
   }
 
   loadHomeScreen() {
     // automatically redirect user to home screen
-    try{
-      Home home = Home(userName: users.keys.first, userPicture: users[users.keys.first][0], userDate: users[users.keys.first][2], userGenre :  users[users.keys.first][1], userBells: users[users.keys.first][3],);
-      Navigator.push(context, MaterialPageRoute(builder: (context) => home ));
-    } catch (e){
-      Navigator.push(context, MaterialPageRoute(builder: (context) => Welcome()));
+    print(users);
+    if (userMatches){
+      Navigator.push(context, MaterialPageRoute(builder: (context) => Home(userName: userName, userPicture: userPicture, userDate: userDate, userGenre: userGenre, userBells: userBells)));
+    } else {
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Welcome(userID: userNameLogin,)));
     }
   }
 

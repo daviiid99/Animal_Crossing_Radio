@@ -12,7 +12,7 @@ class KK{
   final String songPath;
 
   static const kkTable = """
-  CREATE TABLE kkSongs(
+  CREATE TABLE IF NOT EXISTS kkSongs(
   songName TEXT PRIMARY KEY,
   songArt TEXT,
   songPath TEXT);

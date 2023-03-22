@@ -9,7 +9,7 @@ class AnnouncementDataBase{
   final String date;
 
   static const announcementsTable = """
-  CREATE TABLE announcements(
+  CREATE TABLE IF NOT EXISTS announcements(
   date TEXT PRIMARY KEY
   );
   """;

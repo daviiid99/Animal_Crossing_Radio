@@ -53,10 +53,9 @@ class Register {
     List<Register> getUsers(List<Map<String,dynamic>> rawUsers) {
       // Read the list of users and get a list of users
       List<Register> users = [];
-      Register currentUser = Register(userName: "userName", userPassword: "userPassword", keepLogin: 0);
 
       for (Map<String,dynamic> user in rawUsers){
-        currentUser = Register.fromMap(user);
+        Register currentUser = Register.fromMap(user);
         users.add(currentUser);
       }
 

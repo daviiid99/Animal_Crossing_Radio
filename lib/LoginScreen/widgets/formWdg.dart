@@ -234,7 +234,8 @@ class FormNavBarButton extends StatelessWidget with Control{
                     FormFields.nameErrorMessage = "";
                     FormFields.passwordErrorMessage = "";
                     instance.hotReload(mainContext);
-                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => TitleScreen()));
+                    List<User> users = await  CheckUsers.retrieveUsers();
+                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => TitleScreen(userNameLogin: FormFields.name.text.toString(), usersData: users,)));
                   }
 
                   else if (log == "unknown_name") {
@@ -266,7 +267,8 @@ class FormNavBarButton extends StatelessWidget with Control{
                     FormFields.nameErrorMessage = "";
                     FormFields.passwordErrorMessage = "";
                     instance.hotReload(mainContext);
-                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => TitleScreen()));
+                    List<User> users = await  CheckUsers.retrieveUsers();
+                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => TitleScreen(userNameLogin: FormFields.name.text.toString(), usersData: users,)));
 
                   }
               }

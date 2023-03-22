@@ -15,7 +15,7 @@ class App{
   final String changelog;
 
   static const appTable = """
-  CREATE TABLE app(
+  CREATE TABLE IF NOT EXISTS app(
   version TEXT PRIMARY KEY,
   theme TEXT,
   version_date TEXT,

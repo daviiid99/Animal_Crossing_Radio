@@ -14,7 +14,7 @@ class Item{
   final int itemSalePrice;
 
   static const itemsTable = """
-  CREATE TABLE items(
+  CREATE TABLE IF NOT EXISTS items(
   itemName TEXT PRIMARY KEY,
   itemPicture TEXT,
   itemBuyPrice INTEGER,

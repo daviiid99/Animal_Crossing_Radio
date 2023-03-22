@@ -16,7 +16,7 @@ class PocketDatabase {
   final String user;
 
   static const pocketTable = """
-  CREATE TABLE pocket(
+  CREATE TABLE IF NOT EXISTS pocket(
   itemField TEXT PRIMARY KEY,
   itemPicture TEXT,
   itemName TEXT,

@@ -10,7 +10,7 @@ class Library{
   final String playlist;
 
   static const playlistTable =  """
-  CREATE TABLE library(
+  CREATE TABLE IF NOT EXISTS library(
     id INT PRIMARY KEY,
     name TEXT,
     playlist TEXT,

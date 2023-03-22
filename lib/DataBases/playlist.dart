@@ -10,7 +10,7 @@ class PlaylistDataBase{
   final String song;
 
   static const playlistTable = """
-  CREATE TABLE playlist(
+  CREATE TABLE IF NOT EXISTS playlist(
   id INTEGER PRIMARY KEY,
   song TEXT);
   """;

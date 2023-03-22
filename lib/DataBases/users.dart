@@ -6,17 +6,19 @@ class User {
   required this.name,
   required this.picture,
   required this.genre,
-  required this.date_of_birth,
+  required this.dateOfBirth,
   required this.bells,
   required this.library,
+  required this.userID,
 });
 
   final String name;
   final String picture;
   final String genre;
-  final String date_of_birth;
+  final String dateOfBirth;
   final int bells;
   final String library;
+  final String userID;
 
 
   static const usersTable =
@@ -28,7 +30,9 @@ class User {
    genre TEXT,
    date_of_birth TEXT,
    bells INTEGER,
-   library TEXT);
+   library TEXT,
+   userID TEXT,
+   FOREIGN KEY(userID) REFERENCES Register(userName));
   """;
 
   Map<String, dynamic> toMap() {
@@ -36,11 +40,22 @@ class User {
       "name" : name,
       "picture" : picture,
       "genre" : genre,
-      "date_of_birth" : date_of_birth,
+      "date_of_birth" : dateOfBirth,
       "bells" :  bells,
       "library" : library,
+      "userID" : userID,
     };
   }
+
+  factory User.fromMap(Map<String,dynamic> map) => User (
+    name: map["name"],
+    picture: map["picture"],
+    genre: map["genre"],
+    dateOfBirth: map["date_of_birth"],
+    bells: map["bells"],
+    library: map["library"],
+    userID: map["userID"],
+  );
 
   createUsersTable() async {
     // A method to create the desired table inside the database
@@ -59,28 +74,24 @@ class User {
     );
   }
 
-  Future<Map<String, dynamic>> retrieveUser() async {
+  static Future<List<User>> retrieveUser() async {
     // A method to read users from database
     // Add all available users into a Hash Map
 
-    Future<Map<String, dynamic>> addUsers(List<Map<String, dynamic>> users) async {
-      Map<String, dynamic> temp =  {};
+    List<User> addUsers(List<Map<String, dynamic>> rawUsers) {
+      List<User> users = [];
 
-      for (Map<String, dynamic> user in users){
-        for (String key in user.keys){
-          if (!temp.containsKey(user["name"])){
-            temp[user["name"]] = [];
-            temp[user["name"]] = [user["picture"], user["genre"], user["date_of_birth"], user["bells"], user["library"]];
-          }
-        }
+      for (Map<String,dynamic> user in rawUsers){
+        User currentUser = User.fromMap(user);
+        users.add(currentUser);
       }
-      return temp;
+
+      return users;
     }
 
     final Database db = await openDatabase("songs.db");
     List<Map<String, dynamic>> usersMaps = await db.query("users");
-    Map<String, dynamic> users = {};
-    users = await addUsers(usersMaps);
+    List<User> users = addUsers(usersMaps);
 
     return users;
 

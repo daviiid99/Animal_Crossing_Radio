@@ -52,12 +52,10 @@ class HomeState extends State<Home> with Control{
   Song mySongs = Song();
   Map<String, dynamic> songs = {};
   Map<String, dynamic> users = {};
-  Welcome welcome = Welcome();
-  User user = User(name: "name", picture: "picture", genre: "genre", date_of_birth: "date_of_birth", bells: 0, library: "library");
+  User user = User(name: "name", picture: "picture", genre: "genre", dateOfBirth: "date_of_birth", bells: 0, library: "library", userID: "");
   Settings settings = Settings();
   Map<String,dynamic> userPockets = {};
   AnnouncementDataBase announcementDataBase = AnnouncementDataBase(date : "");
-  Announcement announcement = Announcement();
   String currentDate = "";
   bool choosedOption = false;
 
@@ -65,11 +63,9 @@ class HomeState extends State<Home> with Control{
   void initState()  {
     enablefullScreenMode();
     player.pause();
-    checkUser();
     checkDataBase();
     readPocket();
     checkAnnouncements();
-    checkUser();
     super.initState();
   }
 
@@ -91,7 +87,7 @@ class HomeState extends State<Home> with Control{
         AnnouncementDataBase newDate = AnnouncementDataBase(date: currentDate);
         announcementDataBase.insertRowIntoTable(newDate);
 
-        Navigator.push(context, MaterialPageRoute(builder: (context) => announcement));
+        Navigator.push(context, MaterialPageRoute(builder: (context) => Announcement(genre: userGenre)));
       }
     }
 
@@ -110,15 +106,6 @@ class HomeState extends State<Home> with Control{
     });
 
   }
-
-  checkUser(){
-    // Check if previous context return an exception retrieving users
-    if (userName.isEmpty){
-      Navigator.push(context,
-          MaterialPageRoute(builder: (context) => welcome));
-    }
-  }
-
 
   checkDataBase() async {
     // A method to check if database is empty or not

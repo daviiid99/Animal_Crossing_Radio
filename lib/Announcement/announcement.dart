@@ -4,14 +4,23 @@ import 'package:audioplayers/audioplayers.dart';
 import '../Screens/screen.dart';
 
 class Announcement extends StatefulWidget{
-  const Announcement({super.key});
+  const Announcement({
+    required this.genre,
+    super.key});
+
+  final String genre;
 
   @override
-  AnnouncementState createState() => AnnouncementState();
+  AnnouncementState createState() => AnnouncementState(genre: genre);
 }
 
 class AnnouncementState extends State with Control{
 
+  AnnouncementState({
+    required this.genre,
+});
+
+  final String genre;
   String currentDialog = "assets/isabelle/dialog_1_boy_morning.png";
   String currentDialogType = "morning_boy";
   int currentDialogIndex = 0;
@@ -56,19 +65,7 @@ class AnnouncementState extends State with Control{
     // We need to know if user sex is boy or girl before continue
     // In order to show dialogs based on sex
 
-    User currentUser = User(name: "name", picture: "picture", genre: "genre", date_of_birth: "date_of_birth", bells: 0, library: "library");
-    Map<String,dynamic> user = {};
-
-    try {
-      user = await currentUser.retrieveUser();
-    }
-    catch (e){
-      print(e);
-    }
-
-    print(user);
-
-    if (user[user.keys.first][1] == "boy"){
+    if (genre == "boy"){
       setState(() {
         isBoy = true;
       });

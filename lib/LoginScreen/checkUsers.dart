@@ -52,6 +52,18 @@ class CheckUsers{
 
   }
 
+  static Future<List<User>> retrieveUsers() async {
+    // Retrieve existing users in database
+    List<User> users = [];
+
+    try {
+      users = await User.retrieveUser();
+    } catch (e) {
+      users = [];
+    }
+    return users;
+  }
+
   static registerUser(String userName, String userPassword, int keepLogin) async {
     // Create an entry for given user and password
     Register newUser = Register(userName: userName, userPassword: userPassword, keepLogin: keepLogin);

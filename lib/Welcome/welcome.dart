@@ -13,14 +13,23 @@ import '../Transactions/transaction.dart';
 class Welcome extends StatefulWidget{
   @override
   const Welcome({
-  super.key,
+    super.key,
+    required this.userID,
 });
 
+  final String userID;
+
   @override
-  WelcomeState createState() => WelcomeState();
+  WelcomeState createState() => WelcomeState(userID: userID);
 }
 
 class WelcomeState extends State<Welcome> with Control{
+
+  WelcomeState({
+    required this.userID,
+});
+
+  final String userID;
 
   // Standard variables
   AudioPlayer audio = AudioPlayer();
@@ -243,11 +252,12 @@ class WelcomeState extends State<Welcome> with Control{
 
   createUser() async {
     audio.stop(); // Kill service if still up
-    User user = User(name: name.name.text.toString(), picture: genre.isBoy ? genre.models[0] : genre.models[1], genre: genre.isBoy? "boy" : "girl", date_of_birth: "${birthday.currentDay}/${birthday.currentMonth}/${birthday.currentYear}", bells: 500, library: "Playlist de ${name.name.text.toString()}");
+    User user = User(name: name.name.text.toString(), picture: genre.isBoy ? genre.models[0] : genre.models[1], genre: genre.isBoy? "boy" : "girl", dateOfBirth: "${birthday.currentDay}/${birthday.currentMonth}/${birthday.currentYear}", bells: 500, library: "Playlist de ${name.name.text.toString()}", userID: userID);
+
     Transaction creation = Transaction();
     creation.createTable(user);
-    Map<String, dynamic> users = await user.retrieveUser();
-    Home home = Home(userName: users.keys.first, userPicture: users[users.keys.first][0], userDate: users[users.keys.first][2], userGenre: users[users.keys.first][1], userBells: 500,);
+    List<User> users = await User.retrieveUser();
+    Home home = Home(userName: name.name.text.toString(), userPicture: genre.isBoy ? genre.models[0] : genre.models[1], userDate: "${birthday.currentDay}/${birthday.currentMonth}/${birthday.currentYear}", userGenre: genre.isBoy? "boy" : "girl", userBells: 500);
     Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => home));
   }
 
