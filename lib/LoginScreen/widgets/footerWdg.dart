@@ -28,8 +28,7 @@ class FooterWdg extends StatelessWidget with Control{
               login.userAction = false;
             }
 
-            Navigator.pop(context);
-            Navigator.push(context, MaterialPageRoute(builder: (context) => login));
+            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => login));
 
           },
           child : isLogin ? Text("Crear Nueva Cuenta", style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold), textAlign: TextAlign.center,) : Text("Iniciar Sesión", style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold), textAlign: TextAlign.center,),

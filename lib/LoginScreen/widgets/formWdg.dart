@@ -20,6 +20,7 @@ class FormWdg extends StatelessWidget{
 
     final size = MediaQuery.of(context).size;
     return Container(
+      padding: EdgeInsets.symmetric(horizontal: 20 ),
       width: 400,
       height: 400,
       margin: EdgeInsets.only(top: size.height *  0.3, left: 20, right: 20),
@@ -110,9 +111,9 @@ class FormFields extends StatelessWidget with Control{
         Row(
           children: [
             // Name Text Field
-            const SizedBox(width: 15,),
+            const Spacer(),
             SizedBox(
-              width: 360,
+              width: double.maxFinite,
               height: 100,
               child: TextField(
                 controller: name,
@@ -128,16 +129,16 @@ class FormFields extends StatelessWidget with Control{
                 ),
               ) ,
             ),
-            const SizedBox(width: 15,)
+            const Spacer(),
           ],
         ),
 
         Row(
           children: [
             // Password Text Field
-            const SizedBox(width: 15,),
+            const Spacer(),
             SizedBox(
-              width: 360,
+              width: double.maxFinite,
               height: 100,
               child: TextField(
                 controller: password,
@@ -152,7 +153,7 @@ class FormFields extends StatelessWidget with Control{
                 ),
               ),
             ),
-            const SizedBox(width: 15,),
+            const Spacer(),
           ],
         )
 
@@ -178,13 +179,13 @@ class FormNavBarButton extends StatelessWidget with Control{
   Widget build(BuildContext context){
 
     FormFields instance = FormFields(mainContext: context);
+    final width = MediaQuery.of(context).size.width;
 
     return Row(
       children: [
-        const SizedBox(width: 95,),
+        const Spacer(),
         SizedBox(
           width: 200,
-          height: 50,
           child: ClipRRect(
             borderRadius: BorderRadius.circular(10),
               child : TextButton(
@@ -207,7 +208,7 @@ class FormNavBarButton extends StatelessWidget with Control{
                     FormFields.nameErrorMessage = "";
                     FormFields.passwordErrorMessage = "";
                     instance.hotReload(mainContext);
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => TitleScreen()));
+                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => TitleScreen()));
                   }
 
                   else if (log == "unknown_name") {
@@ -239,7 +240,7 @@ class FormNavBarButton extends StatelessWidget with Control{
                     FormFields.nameErrorMessage = "";
                     FormFields.passwordErrorMessage = "";
                     instance.hotReload(mainContext);
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => TitleScreen()));
+                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => TitleScreen()));
 
                   }
               }
@@ -251,7 +252,7 @@ class FormNavBarButton extends StatelessWidget with Control{
            ),
           ),
         ),
-        const SizedBox(width: 95,),
+        const Spacer(),
       ],
     );
   }

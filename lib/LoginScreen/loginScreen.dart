@@ -61,25 +61,17 @@ class LoginScreenState extends State<LoginScreen> with Control{
           SafeArea(child: BannerWdg()),
 
           // Middle Screen form // Container
-          Row(
-            children: [
-              Expanded(
-                child : ListView(
-                    children  : [
-                      const Spacer(),
-                      form,
-                      const Spacer(),
-                    ]
-                ),
+          ListView(
+                children: [
+                  form,
+                ],
               ),
-            ],
-          ),
 
           // Create account footer
           Container(
             width: double.maxFinite,
             height: 50,
-            margin: EdgeInsets.only(top: size.height * 0.8 ),
+            margin: EdgeInsets.only(top: size.height * 0.9, ),
             child : footer,
           ),
         ],
