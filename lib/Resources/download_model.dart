@@ -30,7 +30,7 @@ class DownloadModel with Control {
   static int currentEntry = 0;
   int previousEntry = 0;
   static String get newProgress => currentProgress;
-  static List<String> descargas = [];
+  static List<String> descargas = [""];
 
   static Map<String,dynamic> files = {
 
@@ -211,6 +211,10 @@ class DownloadModel with Control {
           switch (currentProgress) {
             case "100%" :
               if (!descargas.contains(download.fileName)){
+                if (descargas[0] ==  "") {
+                  descargas[0] =  download.fileName;
+                }
+                
                 descargas.add(download.fileName);
                 currentEntry = descargas.length;
                 print(descargas);
