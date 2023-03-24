@@ -5,7 +5,6 @@ import 'package:path_provider/path_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:download_assets/download_assets.dart';
 import 'package:dio/dio.dart';
-import 'package:flutter_archive/flutter_archive.dart';
 import 'package:archive/archive_io.dart';
 import 'package:provider/provider.dart';
 import 'package:stacked/stacked.dart';
@@ -67,7 +66,7 @@ class DownloadViewState extends State<DownloadView>{
                     margin: EdgeInsets.only(
                         top: height * 0.3, left: 50, right: 50),
                     width: double.maxFinite,
-                    height: 300,
+                    height: 350,
                     decoration: BoxDecoration(
                         color: Colors.white.withOpacity(0.9),
                         borderRadius: BorderRadius.circular(40)
@@ -75,6 +74,7 @@ class DownloadViewState extends State<DownloadView>{
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
+                        DownloadModel.currentEntry == DownloadModel.maxEntries ? const SizedBox(height: 5,) :
                         SizedBox(height: 100, width: 100,
                             child: CircularProgressIndicator(
                                 color: Colors.blueAccent)),
@@ -91,9 +91,9 @@ class DownloadViewState extends State<DownloadView>{
                         const SizedBox(height: 5,),
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
-                          children: const [
+                          children:  [
                             Spacer(),
-                            Text("Por favor, espera",
+                            DownloadModel.currentEntry == DownloadModel.maxEntries ? Text("") :  Text("Por favor, espera",
                               style: TextStyle(color: Colors.black,
                                   fontSize: 15),),
                             Spacer(),
@@ -105,12 +105,23 @@ class DownloadViewState extends State<DownloadView>{
                         Row(
                           children: [
                             const Spacer(),
-                            Text("${DownloadModel.currentEntry}/${DownloadModel.maxEntries}", style: TextStyle(color: Colors.black,
+                            DownloadModel.currentEntry == DownloadModel.maxEntries ? Text("") :  Text("${DownloadModel.currentEntry}/${DownloadModel.maxEntries}", style: TextStyle(color: Colors.black,
                                 fontWeight: FontWeight.bold,
                                 fontSize: 25)),
                             const Spacer(),
                           ],
                         ),
+
+                        const SizedBox(height: 15,),
+
+                        Row(
+                          children: [
+                            const Spacer(),
+                            DownloadModel.currentEntry == DownloadModel.maxEntries ? Text("") :  Text("${DownloadModel.descargas.last}", style: TextStyle(color: Colors.black, fontSize: 20) ,),
+                            const Spacer(),
+                          ],
+                        ),
+
 
                         const SizedBox(height: 15,),
                       ],
