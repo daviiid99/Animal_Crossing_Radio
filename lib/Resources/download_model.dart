@@ -216,8 +216,11 @@ class DownloadModel with Control {
                 } else {
                   descargas.add(download.fileName);
                   currentEntry = descargas.length;
-                  print(descargas);
                   hotReload(context);
+                  if (currentEntry == maxEntries){
+                    title  = "Downloads Completed";
+                    hotReload(context);
+                  }
                 }
               }
               break;

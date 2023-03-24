@@ -74,6 +74,7 @@ class DownloadViewState extends State<DownloadView>{
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
+                        DownloadModel.currentEntry == DownloadModel.maxEntries ? const SizedBox(height: 5,) :
                         SizedBox(height: 100, width: 100,
                             child: CircularProgressIndicator(
                                 color: Colors.blueAccent)),
@@ -90,9 +91,9 @@ class DownloadViewState extends State<DownloadView>{
                         const SizedBox(height: 5,),
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
-                          children: const [
+                          children:  [
                             Spacer(),
-                            Text("Por favor, espera",
+                            DownloadModel.currentEntry == DownloadModel.maxEntries ? Text("") :  Text("Por favor, espera",
                               style: TextStyle(color: Colors.black,
                                   fontSize: 15),),
                             Spacer(),
@@ -104,7 +105,7 @@ class DownloadViewState extends State<DownloadView>{
                         Row(
                           children: [
                             const Spacer(),
-                            Text("${DownloadModel.currentEntry}/${DownloadModel.maxEntries}", style: TextStyle(color: Colors.black,
+                            DownloadModel.currentEntry == DownloadModel.maxEntries ? Text("") :  Text("${DownloadModel.currentEntry}/${DownloadModel.maxEntries}", style: TextStyle(color: Colors.black,
                                 fontWeight: FontWeight.bold,
                                 fontSize: 25)),
                             const Spacer(),
@@ -116,7 +117,7 @@ class DownloadViewState extends State<DownloadView>{
                         Row(
                           children: [
                             const Spacer(),
-                            Text("${DownloadModel.descargas.last}", style: TextStyle(color: Colors.black, fontSize: 20) ,),
+                            DownloadModel.currentEntry == DownloadModel.maxEntries ? Text("") :  Text("${DownloadModel.descargas.last}", style: TextStyle(color: Colors.black, fontSize: 20) ,),
                             const Spacer(),
                           ],
                         ),
