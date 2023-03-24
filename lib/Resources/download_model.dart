@@ -213,12 +213,12 @@ class DownloadModel with Control {
               if (!descargas.contains(download.fileName)){
                 if (descargas[0] ==  "") {
                   descargas[0] =  download.fileName;
+                } else {
+                  descargas.add(download.fileName);
+                  currentEntry = descargas.length;
+                  print(descargas);
+                  hotReload(context);
                 }
-                
-                descargas.add(download.fileName);
-                currentEntry = descargas.length;
-                print(descargas);
-                hotReload(context);
               }
               break;
           }
