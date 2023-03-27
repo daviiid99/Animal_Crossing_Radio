@@ -105,6 +105,7 @@ flutter:
     - assets/models/
     - assets/welcome/genre/
     - assets/menu/
+    - assets/animation/
 
 flutter_icons:
   image_path: "assets/icon/icon.png"
