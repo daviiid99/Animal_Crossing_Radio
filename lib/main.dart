@@ -12,7 +12,7 @@ class mainApp extends StatelessWidget{
   @override
   Widget build(BuildContext context){
     return MaterialApp(
-          home: LoadinScreenView(),
+          home: GardenView(),
           debugShowCheckedModeBanner: false,
           debugShowMaterialGrid: false,
     );
