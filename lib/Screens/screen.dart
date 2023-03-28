@@ -47,3 +47,7 @@ export '../LoadingScreen/widgets/npcDialog.dart';
 export '../LoadingScreen/widgets/nextDialogBtn.dart';
 export '../Data/events_data.dart';
 export '../DataBases/events.dart';
+export '../Garden/garden_model.dart';
+export '../Garden/garden_view.dart';
+export '../Garden/widgets/asset_generator.dart';
+export '../Garden/widgets/animalClock.dart';
