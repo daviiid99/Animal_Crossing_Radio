@@ -28,7 +28,6 @@ class PlaylistState extends State<Playlist>{
   final String disc;
   late String banner;
   var player = AudioPlayer();
-  Map<String, dynamic> songs = {};
   List<String> logos = ["assets/logo/ac_gamecube.png", "assets/logo/ac_ds.png", "assets/logo/ac_wii.png", "assets/logo/ac_3ds.png", "assets/logo/ac_switch.png"];
   List<String> songsTitle = [];
   List<String> songsPath  = [];
@@ -46,7 +45,7 @@ class PlaylistState extends State<Playlist>{
     // Add songs title, path into lists
     setState(() {
       if (!songsTitle.contains(song.title)){
-        songsTitle.add(song.title);
+        songsTitle.add(song.name);
         songsPath.add(song.uri);
       }
     });
@@ -79,7 +78,7 @@ class PlaylistState extends State<Playlist>{
 
   getCurrentDiscSongs() async {
 
-    Map<String, dynamic>  chooseCurrentDiscSongs(List<Songs> temp){
+    chooseCurrentDiscSongs(List<Songs> temp){
       // Once we've all existing songs
       // We just want current disc songs to be added
 
@@ -114,7 +113,6 @@ class PlaylistState extends State<Playlist>{
           }
         }
       }
-      return songs;
     }
 
     // User choosed a disc to play a song
@@ -123,9 +121,7 @@ class PlaylistState extends State<Playlist>{
     Songs database = Songs(name: "name", uri: "uri", logo: "logo", title: "title");
 
     temp = await Songs.retrieveSongs(); // Catch all songs
-    setState(() {
-      songs = chooseCurrentDiscSongs(temp);
-    });
+    chooseCurrentDiscSongs(temp);
 
   }
 
