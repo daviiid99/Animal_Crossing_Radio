@@ -50,7 +50,7 @@ class HomeState extends State<Home> with Control{
   AudioPlayer player = AudioPlayer();
   Songs database = Songs(name: "name", uri: "uri", logo: "logo", title: "title");
   Song mySongs = Song();
-  Map<String, dynamic> songs = {};
+  List<Songs> songs = [];
   Map<String, dynamic> users = {};
   User user = User(name: "name", picture: "picture", genre: "genre", dateOfBirth: "date_of_birth", bells: 0, library: "library", userID: "");
   Settings settings = Settings();
@@ -111,13 +111,13 @@ class HomeState extends State<Home> with Control{
     // A method to check if database is empty or not
     // Retrieve all existing songs
     try {
-      songs = await database.retrieveSongs();
+      songs = await Songs.retrieveSongs();
    }
      catch (e) {
       if (songs.isEmpty){
         Song data = Song();
         await data.insertSongs();
-        songs = await database.retrieveSongs();
+        songs = await Songs.retrieveSongs();
       }
      }
      setState(() {

@@ -42,14 +42,12 @@ class PlaylistState extends State<Playlist>{
     super.initState();
   }
 
-  getPlayListSongs() async {
+  getPlayListSongs(Songs song) async {
     // Add songs title, path into lists
     setState(() {
-      for (String title in songs.keys){
-        if (!songsTitle.contains(title)){
-          songsTitle.add(title);
-          songsPath.add(songs[title][0]);
-        }
+      if (!songsTitle.contains(song.title)){
+        songsTitle.add(song.title);
+        songsPath.add(song.uri);
       }
     });
     print(songsTitle);
@@ -81,43 +79,38 @@ class PlaylistState extends State<Playlist>{
 
   getCurrentDiscSongs() async {
 
-    Map<String, dynamic>  chooseCurrentDiscSongs(Map<String, dynamic> temp){
+    Map<String, dynamic>  chooseCurrentDiscSongs(List<Songs> temp){
       // Once we've all existing songs
       // We just want current disc songs to be added
 
       if (game.contains("Population")){
-        for (String song in temp.keys){
-          if (temp[song][2].contains("Population")){
-            songs[song] = [];
-            songs[song] = [temp[song][0], temp[song][1], temp[song][2]];
+        for (Songs song in temp){
+          if (song.title.contains("Population")){
+            getPlayListSongs(song);
           }
         }
       } else if (game.contains("Wild")){
-        for (String song in temp.keys){
-          if (temp[song][2].contains("Wild")){
-            songs[song] = [];
-            songs[song] = [temp[song][0], temp[song][1], temp[song][2]];
+        for (Songs song in temp){
+          if (song.title.contains("Wild")){
+            getPlayListSongs(song);
           }
         }
       } else if (game.contains("City")){
-        for (String song in temp.keys){
-          if (temp[song][2].contains("City")){
-            songs[song] = [];
-            songs[song] = [temp[song][0], temp[song][1], temp[song][2]];
+        for (Songs song in temp){
+          if (song.title.contains("City")){
+            getPlayListSongs(song);
           }
         }
       }  else if (game.contains("Leaf")){
-        for (String song in temp.keys){
-          if (temp[song][2].contains("Leaf")){
-            songs[song] = [];
-            songs[song] = [temp[song][0], temp[song][1], temp[song][2]];
+        for (Songs song in temp){
+          if (song.title.contains("Leaf")){
+            getPlayListSongs(song);
           }
         }
       } else if (game.contains("Horizons")){
-        for (String song in temp.keys){
-          if (temp[song][2].contains("Horizons")){
-            songs[song] = [];
-            songs[song] = [temp[song][0], temp[song][1], temp[song][2]];
+        for (Songs song in temp){
+          if (song.title.contains("Horizons")){
+            getPlayListSongs(song);
           }
         }
       }
@@ -126,13 +119,12 @@ class PlaylistState extends State<Playlist>{
 
     // User choosed a disc to play a song
     // We'll fetch only the songs of current disc
-    Map<String, dynamic> temp = {};
+    List<Songs> temp = [];
     Songs database = Songs(name: "name", uri: "uri", logo: "logo", title: "title");
 
-    temp = await database.retrieveSongs(); // Catch all songs
+    temp = await Songs.retrieveSongs(); // Catch all songs
     setState(() {
       songs = chooseCurrentDiscSongs(temp);
-      getPlayListSongs();
     });
 
   }
