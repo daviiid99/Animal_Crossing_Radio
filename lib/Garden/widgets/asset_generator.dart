@@ -1,22 +1,20 @@
 import 'package:flutter/material.dart';
+import '../../Screens/screen.dart';
 
 class AssetGenerator extends StatelessWidget{
   @override
   const AssetGenerator({
-    required this.isTree,
-    required this.isPalmTree,
+    required this.garden,
     super.key,
 });
 
-  final bool isTree;
-  final bool isPalmTree;
-
+  final Garden garden;
 
   @override
   Widget build(BuildContext context){
 
-    PathGenerator currentPath = PathGenerator(isSand: isPalmTree ? true :  false);
-    TreeGenerator currentTree = TreeGenerator(isTree: isTree, isPalmTree: isPalmTree);
+    PathGenerator currentPath = PathGenerator(isSand: garden.isPalmTree == 1 ? true :  false);
+    TreeGenerator currentTree = TreeGenerator(isTree: garden.isTree == 1 ?  true : false, isPalmTree: garden.isPalmTree == 1 ?  true : false);
 
     return Stack(
       children: [

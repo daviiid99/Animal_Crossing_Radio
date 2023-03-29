@@ -1,5 +1,6 @@
 import 'package:animal_crossing_radio/Garden/widgets/animalClock.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
 import '../Screens/screen.dart';
@@ -12,14 +13,22 @@ class GardenView extends StackedView<GardenModel>{
       Widget? child,
       ){
 
+    NavigationMenu navBar = NavigationMenu(viewModel: viewModel);
+    AssetGenerator asset = AssetGenerator(garden: viewModel.currentGarden);
+
     return Stack(
       children: [
         // Background
-        const AssetGenerator(isTree: true, isPalmTree: false),
+         asset,
 
         // Menu
         AnimalClock(),
 
+        // Bottom Menu
+        ActionsContainer(),
+
+        // Navigation Button
+        navBar,
       ],
     );
   }

@@ -51,3 +51,6 @@ export '../Garden/garden_model.dart';
 export '../Garden/garden_view.dart';
 export '../Garden/widgets/asset_generator.dart';
 export '../Garden/widgets/animalClock.dart';
+export '../Garden/widgets/actionsContainer.dart';
+export '../DataBases/garden.dart';
+export '../Garden/widgets/navigationMenu.dart';

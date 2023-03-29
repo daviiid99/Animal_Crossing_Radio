@@ -33,6 +33,13 @@ class Songs{
     };
   }
 
+  factory Songs.fromMap(Map<String,dynamic> map) => Songs(
+    name: map["name"],
+    uri: map["uri"],
+    logo: map["logo"],
+    title: map["title"],
+  );
+
   createTable() async {
     // A method to create a transaction to create the table
     db = await openDatabase("songs.db");
@@ -48,26 +55,25 @@ class Songs{
     song.toMap());
   }
 
-  Future<Map<String, dynamic>> retrieveSongs() async {
+  static Future<List<Songs>> retrieveSongs() async {
 
-    Map<String, dynamic> joinSongsIntoMap(List<Map<String, dynamic>> songs, Map<String, dynamic> finalSongs){
+    List<Songs> getSongs(List<Map<String, dynamic>> rawSongs){
       // This method receives a list of maps
       // Iterates every map
-      for (Map<String, dynamic> song in songs){
-          finalSongs[song["name"]] = [];
-          finalSongs[song["name"]] = [song["uri"], song["logo"], song["title"]];
+      List<Songs> songs = [];
+
+      for (Map<String, dynamic> song in rawSongs){
+          Songs currentSong = Songs.fromMap(song);
+          songs.add(currentSong);
       }
-      return finalSongs;
+      return songs;
     }
 
-    db = await openDatabase("songs.db");
-    List<Map<String, dynamic>> songs = await db.query("songs");
-    Map<String, dynamic> finalSongs = {};
-    finalSongs = await joinSongsIntoMap(songs, finalSongs);
+    final Database db = await openDatabase("songs.db");
+    List<Map<String, dynamic>> rawSongs = await db.query("songs");
+    List<Songs> songs = getSongs(rawSongs);
 
-    return finalSongs;
+    return songs;
   }
-
-
 
 }
