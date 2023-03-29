@@ -276,6 +276,7 @@ class HomeState extends State<Home> with Control{
 
       case 3 :
         setState(() {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => GardenView()));
         });
         break;
     }
