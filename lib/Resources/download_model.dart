@@ -1,7 +1,10 @@
 import 'dart:io';
 import 'package:animal_crossing_radio/Control/control.dart';
+import 'package:animal_crossing_radio/LoadingScreen/loadingScreen_view.dart';
+import 'package:animal_crossing_radio/LoginScreen/loginScreen.dart';
 import 'package:animal_crossing_radio/Resources/download_view.dart';
 import 'package:archive/archive_io.dart';
+import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
@@ -219,6 +222,7 @@ class DownloadModel with Control {
                   hotReload(context);
                   if (currentEntry == maxEntries){
                     title  = "Downloads Completed";
+                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginScreen()));
                     hotReload(context);
                   }
                 }

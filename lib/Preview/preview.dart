@@ -1,6 +1,9 @@
+import 'dart:io';
+
 import '../Screens/screen.dart';
 import 'package:flutter/material.dart';
 import 'package:audioplayers/audioplayers.dart';
+import 'package:path_provider/path_provider.dart';
 
 class Preview extends StatefulWidget{
 
@@ -54,6 +57,7 @@ class PreviewState extends State<Preview> with TickerProviderStateMixin, Control
   String audioPosition = "";
   String fixedDuration = "";
   String cumulativeControlVisibility = "";
+  Directory deviceDir =  Directory("");
 
   // Values used for disc rotation
   late AnimationController _controller;
@@ -68,9 +72,15 @@ class PreviewState extends State<Preview> with TickerProviderStateMixin, Control
   @override
   void initState(){
     discAnimation("play");
-    playChoosedSong();
     values();
+    playChoosedSong();
     super.initState();
+  }
+
+  getDeviceDirectory() async{
+
+    deviceDir = await getApplicationDocumentsDirectory();
+
   }
 
   void discAnimation(String state){
@@ -146,13 +156,13 @@ class PreviewState extends State<Preview> with TickerProviderStateMixin, Control
           if (currentSong < songs.length - 1){
             setState(() {
               currentSong++;
-              player.play(AssetSource(songs[currentSong].replaceAll("assets/", "")));
+              player.play(DeviceFileSource("${deviceDir.path}/${songs[currentSong].replaceAll("assets/", "")}"));
               title = songsTitle[currentSong];
             });
           } else {
             setState(() {
               currentSong = 0;
-              player.play(AssetSource(songs[currentSong]));
+              player.play(DeviceFileSource("${deviceDir.path}/${songs[currentSong].replaceAll("assets/", "")}"));
             });
           }
       }
@@ -161,14 +171,14 @@ class PreviewState extends State<Preview> with TickerProviderStateMixin, Control
         // There's still on queue
         setState(() {
           currentSong ++;
-          player.play(AssetSource(songs[currentSong].replaceAll("assets/", "")));
+          player.play(DeviceFileSource("${deviceDir.path}/${songs[currentSong].replaceAll("assets/", "")}"));
           title = songsTitle[currentSong];
         });
       } else if (currentSong == songs.length - 1){
         // Resume playlist from start
         setState(() {
           currentSong = 0;
-          player.play(AssetSource(songs[currentSong].replaceAll("assets/", "")));
+          player.play(DeviceFileSource("${deviceDir.path}/${songs[currentSong].replaceAll("assets/", "")}"));
           title = songsTitle[currentSong];
         });
       }
@@ -176,13 +186,13 @@ class PreviewState extends State<Preview> with TickerProviderStateMixin, Control
       if (currentSong == 0){
         setState(() {
           currentSong = songs.length - 1;
-          player.play(AssetSource(songs[currentSong].replaceAll("assets/", "")));
+          player.play(DeviceFileSource("${deviceDir.path}/${songs[currentSong].replaceAll("assets/", "")}"));
           title = songsTitle[currentSong];
         });
       } else if (currentSong > 0 ){
         setState(() {
           currentSong --;
-          player.play(AssetSource(songs[currentSong].replaceAll("assets/", "")));
+          player.play(DeviceFileSource("${deviceDir.path}/${songs[currentSong].replaceAll("assets/", "")}"));
           title = songsTitle[currentSong];
         });
       }
@@ -190,7 +200,7 @@ class PreviewState extends State<Preview> with TickerProviderStateMixin, Control
       if (audioPosition == audioDuration || audioPosition == fixedDuration){
         setState(() {
           killServices();
-          player.play(AssetSource(songs[currentSong].replaceAll("assets/", "")));
+          player.play(DeviceFileSource("${deviceDir.path}/${songs[currentSong].replaceAll("assets/", "")}"));
         });
       }
     }
@@ -317,12 +327,11 @@ class PreviewState extends State<Preview> with TickerProviderStateMixin, Control
     player.seek(newDuration);
   }
 
-  playChoosedSong() {
+  playChoosedSong() async  {
     // On init the class will play the choosed song
+    await getDeviceDirectory();
     setState(() {
-      var song = songs[currentSong];
-      song = song.replaceAll("assets/", "");
-      player.play(AssetSource(song));
+      player.play(DeviceFileSource("${deviceDir.path}/${songs[currentSong].replaceAll("assets/", "")}"));
     });
   }
 
