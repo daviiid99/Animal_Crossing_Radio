@@ -17,11 +17,17 @@ class GardenModel extends BaseViewModel implements Initialisable {
   late String currentTheme;
   late Directory deviceDataDir;
   AudioPlayer player = AudioPlayer();
+  Duration totalSongDuration = Duration();
+  Duration currentSongPosition = Duration();
+  String totalPosition = "";
+  String currentPosition =  "";
+  int currentTime =  0;
 
   @override
   void initialise() {
     addStaticGardensToDataBase(); // generate all assets
     setBackgroundMusic(); // get background sound
+    controlBackgroundMusic(); // set loop for background music
   }
 
   addStaticGardensToDataBase() async {
@@ -82,6 +88,10 @@ class GardenModel extends BaseViewModel implements Initialisable {
   getDeviceDataDirectory() async {
     deviceDataDir = await getApplicationDocumentsDirectory();
     notifyListeners();
+  }
+
+  getCurrentTime(){
+    currentTime = DateTime.now().hour;
   }
 
   getCurrentHourSong(int hour, String title, List<Songs> songs) async {
@@ -228,12 +238,62 @@ class GardenModel extends BaseViewModel implements Initialisable {
         songs = await Songs.retrieveSongs();
       }
 
-      int time = DateTime
-          .now()
-          .hour;
+      getCurrentTime();
       String title = "Wild World";
-      getCurrentHourSong(time, title, songs);
+      getCurrentHourSong(currentTime, title, songs);
       player.pause();
       player.play(DeviceFileSource(currentTheme));
     }
+
+    compareDuration(String total, String current){
+    // This method received current song Duration
+      if (current ==  total){
+        print("equals");
+        print(currentTheme.contains(currentTime.toString()));
+        if (currentTheme.contains(currentTime.toString())){
+          player.stop();
+          player.pause();
+          player.play(DeviceFileSource(currentTheme));
+        } else {
+          setBackgroundMusic();
+        }
+      }
+    }
+
+    formatDurations(Duration d, String type){
+
+    if (type == "full"){
+      int rawMinutes = Duration(minutes: d.inMinutes).inMinutes;
+      int rawSeconds = Duration(seconds: d.inSeconds).inSeconds;
+      totalPosition = "${rawMinutes}:${rawSeconds}";
+    }
+
+    if (type == "current"){
+      int rawMinutes = Duration(minutes: d.inMinutes).inMinutes;
+      int rawSeconds = Duration(seconds: d.inSeconds).inSeconds;
+      currentPosition = "${rawMinutes}:${rawSeconds}";
+    }
+
+
+    }
+
+    controlBackgroundMusic(){
+    // This method will try to listen current background music
+
+      player.onDurationChanged.listen((Duration d) {
+        totalSongDuration =  d;
+        formatDurations(d, "full");
+        print(currentTime);
+      });
+
+      player.onPositionChanged.listen((Duration d) {
+        getCurrentTime(); // Check all time if current hour changed
+        currentSongPosition = d;
+        formatDurations(d, "current");
+        compareDuration(totalPosition, currentPosition);
+        print("$currentPosition/$totalPosition");
+      });
+
+    }
+
   }
