@@ -45,6 +45,7 @@ export '../LoadingScreen/widgets/backgroundSplash.dart';
 export '../LoadingScreen/widgets/navbarAnimation.dart';
 export '../LoadingScreen/widgets/npcDialog.dart';
 export '../LoadingScreen/widgets/nextDialogBtn.dart';
+export '../LoadingScreen/widgets/skipButton.dart';
 export '../Data/events_data.dart';
 export '../DataBases/events.dart';
 export '../Garden/garden_model.dart';

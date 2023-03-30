@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import '../Screens/screen.dart';
 import 'package:flutter/material.dart';
 import 'package:audioplayers/audioplayers.dart';
@@ -21,6 +23,8 @@ class StoreState extends State<Store> with Control{
   List<String> productAsset = ["assets/disc/ds.png", "assets/songs/totakeke/art/CAPULLOS_EN_FLOR.png", "assets/disc/switch.png"];
   List<String> productName = ["Fuegos Artificales", "Capullos en flor", "5PM - New Horizons"];
   List<String> productPrice = ["3000", "3500", "3000"];
+  Directory path = Directory("data/user/0/com.daviiid99.ac_radio/app_flutter");
+
 
   // Choosed product variables
   String choosedProductAsset = "";
@@ -51,7 +55,7 @@ class StoreState extends State<Store> with Control{
     // The main method to play the background music if needed
     setState(() {
       player.pause();
-      player.play(AssetSource("songs/stores/nook.mp3"));
+      player.play(DeviceFileSource("${path.path}/songs/stores/nook.mp3"));
       storeSongInLoop();
     });
   }

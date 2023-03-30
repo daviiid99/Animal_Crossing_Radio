@@ -28,6 +28,8 @@ class LoadinScreenView extends StackedView<LoadingScreenModel> {
       // Next Dialog Button
       NextDialogButton(viewModel: viewModel,),
 
+      // Skip Button
+      SkipButton(),
     ],
   );
   }
