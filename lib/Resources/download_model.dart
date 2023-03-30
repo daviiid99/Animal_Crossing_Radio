@@ -91,6 +91,13 @@ class DownloadModel with Control {
       "8AM_ds.mp3" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/ds/8AM.mp3", "songs/ds/8AM.mp3"],
       "9AM_ds.mp3" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/ds/9AM.mp3", "songs/ds/9AM.mp3"],
       "title_ds.mp3" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/ds/title.mp3", "songs/ds/title.mp3"],
+      "fireworks_ds.mp3" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/ds/fireworks.mp3", "songs/ds/fireworks.mp3"],
+      "able_ds.mp3" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/ds/able.mp3", "songs/ds/able.mp3"],
+      "house_ds.mp3" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/ds/house.mp3", "songs/ds/house.mp3"],
+      "cranny_ds.mp3" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/ds/cranny.mp3", "songs/ds/cranny.mp3"],
+      "office_day_ds.mp3" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/ds/office_day.mp3", "songs/ds/office_day.mp3"],
+      "office_night_ds.mp3" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/ds/office_night.mp3", "songs/ds/office_night.mp3"],
+      "taxi_ds.mp3" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/ds/taxi.mp3", "songs/ds/taxi.mp3"],
     },
 
     "wii" : {
@@ -119,6 +126,14 @@ class DownloadModel with Control {
       "8AM_wii.mp3" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/wii/8AM.mp3", "songs/wii/8AM.mp3"],
       "9AM_wii.mp3" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/wii/9AM.mp3", "songs/wii/9AM.mp3"],
       "title_wii.mp3" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/wii/title.mp3", "songs/wii/title.mp3"],
+      "bus_wii.mp3" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/wii/bus.mp3", "songs/wii/bus.mp3"],
+      "cranny_wii.mp3" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/wii/cranny.mp3", "songs/wii/cranny.mp3"],
+      "hiper_wii.mp3" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/wii/hiper.mp3", "songs/wii/hiper.mp3"],
+      "home_wii.mp3" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/wii/home.mp3", "songs/wii/home.mp3"],
+      "house_wii.mp3" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/wii/house.mp3", "songs/wii/house.mp3"],
+      "nook_wii.mp3" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/wii/nook.mp3", "songs/wii/nook.mp3"],
+      "nooks_wii.mp3" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/wii/nooks.mp3", "songs/wii/nooks.mp3"],
+      "super_wii.mp3" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/wii/super.mp3", "songs/wii/super.mp3"],
     },
 
     "3ds" : {
@@ -179,8 +194,6 @@ class DownloadModel with Control {
 
     "effects" : {
       "bought.mp3" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/effects/bought.mp3", "songs/bought/title.mp3"],
-      "bought.mp3" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/effects/bought.mp3", "songs/bought/title.mp3"],
-
     },
 
     "stores" : {
@@ -194,7 +207,81 @@ class DownloadModel with Control {
       "nintendo_3.mp3" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/nintendo/nintendo_3.mp3", "songs/nintendo/nintendo_3.mp3"],
       "nintendo_4.mp3" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/nintendo/nintendo_4.mp3", "songs/nintendo/nintendo_4.mp3"],
       "nintendo_5.mp3" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/nintendo/nintendo_5.mp3", "songs/nintendo/nintendo_5.mp3"],
+    },
 
+    "totakeke" : {
+      // .PNG files
+      "AGENTE_TOTAKEKE.png" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/totakeke/art/AGENTE_TOTAKEKE.png", "songs/totakeke/art/AGENTE_TOTAKEKE.png"],
+      "AL_VOLANTE.png" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/totakeke/art/AL_VOLANTE.png", "songs/totakeke/art/AL_VOLANTE.png"],
+      "ANTEAYER.png" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/totakeke/art/ANTEAYER.png", "songs/totakeke/art/ANTEAYER.png"],
+      "CANCION_MINIMALISTA.png" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/totakeke/art/CANCION_MINIMALISTA.png", "songs/totakeke/art/CANCION_MINIMALISTA.png"],
+      "CAPULLOS_EN_FLOR.png" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/totakeke/art/CAPULLOS_EN_FLOR.png", "songs/totakeke/art/CAPULLOS_EN_FLOR.png"],
+      "CIUDAD_ANIMAL.png" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/totakeke/art/CIUDAD_ANIMAL.png", "songs/totakeke/art/CIUDAD_ANIMAL.png"],
+      "COLINA_ARRIBA.png" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/totakeke/art/COLINA_ARRIBA.png", "songs/totakeke/art/COLINA_ARRIBA.png"],
+      "DESPEDIDA.png" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/totakeke/art/DESPEDIDA.png", "songs/totakeke/art/DESPEDIDA.png"],
+      "FELIZ_EN_TU_DIA.png" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/totakeke/art/FELIZ_EN_TU_DIA.png", "songs/totakeke/art/FELIZ_EN_TU_DIA.png"],
+      "FORESTAL_Y_TAL.png" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/totakeke/art/FORESTAL_Y_TAL.png", "songs/totakeke/art/FORESTAL_Y_TAL.png"],
+      "HASTA_EL_FINAL.png" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/totakeke/art/HASTA_EL_FINAL.png", "songs/totakeke/art/HASTA_EL_FINAL.png"],
+      "LLANERO_TOTA.png" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/totakeke/art/LLANERO_TOTA.png", "songs/totakeke/art/LLANERO_TOTA.png"],
+      "MIRAME_A_LOS_OJOS.png" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/totakeke/art/MIRAME_A_LOS_OJOS.png", "songs/totakeke/art/MIRAME_A_LOS_OJOS.png"],
+      "MISTER_TOTAKEKE.png" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/totakeke/art/MISTER_TOTAKEKE.png", "songs/totakeke/art/MISTER_TOTAKEKE.png"],
+      "MI_HOGAR.png" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/totakeke/art/MI_HOGAR.png", "songs/totakeke/art/MI_HOGAR.png"],
+      "MI_ISLA_MI_HOGAR.png" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/totakeke/art/MI_ISLA_MI_HOGAR.png", "songs/totakeke/art/MI_ISLA_MI_HOGAR.png"],
+      "NAPOLITANA.png" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/totakeke/art/NAPOLITANA.png", "songs/totakeke/art/NAPOLITANA.png"],
+      "NUEVO_HORIZONTE.png" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/totakeke/art/NUEVO_HORIZONTE.png", "songs/totakeke/art/NUEVO_HORIZONTE.png"],
+      "PASEITO.png" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/totakeke/art/PASEITO.png", "songs/totakeke/art/PASEITO.png"],
+      "PASTELITO_SECO.png" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/totakeke/art/PASTELITO_SECO.png", "songs/totakeke/art/PASTELITO_SECO.png"],
+      "REY_TOTA.png" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/totakeke/art/REY_TOTA.png", "songs/totakeke/art/REY_TOTA.png"],
+      "SOLO_YO.png" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/totakeke/art/SOLO_YO.png", "songs/totakeke/art/SOLO_YO.png"],
+      "SOPESANDO.png" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/totakeke/art/SOPESANDO.png", "songs/totakeke/art/SOPESANDO.png"],
+      "TE_QUIERO.png" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/totakeke/art/TE_QUIERO.png", "songs/totakeke/art/TE_QUIERO.png"],
+      "TOTA_2001.png" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/totakeke/art/TOTA_2001.png", "songs/totakeke/art/TOTA_2001.png"],
+      "TOTA_ALCAZABA.png" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/totakeke/art/TOTA_ALCAZABA.png", "songs/totakeke/art/TOTA_ALCAZABA.png"],
+      "TOTA_ALOHA.png" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/totakeke/art/TOTA_ALOHA.png", "songs/totakeke/art/TOTA_ALOHA.png"],
+      "TOTA_AMOR.png" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/totakeke/art/TOTA_AMOR.png", "songs/totakeke/art/TOTA_AMOR.png"],
+      "TOTA_AMORES.png" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/totakeke/art/TOTA_AMORES.png", "songs/totakeke/art/TOTA_AMORES.png"],
+      "TOTA_ANDINA.png" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/totakeke/art/TOTA_ANDINA.png", "songs/totakeke/art/TOTA_ANDINA.png"],
+      "TOTA_ARIA.png" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/totakeke/art/TOTA_ARIA.png", "songs/totakeke/art/TOTA_ARIA.png"],
+      "TOTA_BALADA.png" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/totakeke/art/TOTA_BALADA.png", "songs/totakeke/art/TOTA_BALADA.png"],
+      "TOTA_BANDA_SONORA.png" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/totakeke/art/TOTA_BANDA_SONORA.png", "songs/totakeke/art/TOTA_BANDA_SONORA.png"],
+      "TOTA_BAZAR.png" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/totakeke/art/TOTA_BAZAR.png", "songs/totakeke/art/TOTA_BAZAR.png"],
+      "TOTA_BLUES.png" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/totakeke/art/TOTA_BLUES.png", "songs/totakeke/art/TOTA_BLUES.png"],
+      // .MP3 Files
+      "AGENTE_TOTAKEKE.mp3" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/totakeke/music/AGENTE_TOTAKEKE.mp3", "songs/totakeke/music/AGENTE_TOTAKEKE.mp3"],
+      "AL_VOLANTE.mp3" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/totakeke/music/AL_VOLANTE.mp3", "songs/totakeke/music/AL_VOLANTE.mp3"],
+      "ANTEAYER.mp3" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/totakeke/music/ANTEAYER.mp3", "songs/totakeke/music/ANTEAYER.mp3"],
+      "CANCION_MINIMALISTA.mp3" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/totakeke/music/CANCION_MINIMALISTA.mp3", "songs/totakeke/music/CANCION_MINIMALISTA.mp3"],
+      "CAPULLOS_EN_FLOR.mp3" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/totakeke/music/CAPULLOS EN FLOR.mp3", "songs/totakeke/music/CAPULLOS_EN_FLOR.mp3"],
+      "CIUDAD_ANIMAL.mp3" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/totakeke/music/CIUDAD_ANIMAL.mp3", "songs/totakeke/music/CIUDAD_ANIMAL.mp3"],
+      "COLINA_ARRIBA.mp3" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/totakeke/music/COLINA_ARRIBA.mp3", "songs/totakeke/music/COLINA_ARRIBA.mp3"],
+      "DESPEDIDA.mp3" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/totakeke/music/DESPEDIDA.mp3", "songs/totakeke/music/DESPEDIDA.mp3"],
+      "FELIZ_EN_TU_DIA.mp3" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/totakeke/music/FELIZ_EN_TU_DIA.mp3", "songs/totakeke/music/FELIZ_EN_TU_DIA.mp3"],
+      "FORESTAL_Y_TAL.mp3" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/totakeke/music/FORESTAL_Y_TAL.mp3", "songs/totakeke/music/FORESTAL_Y_TAL.mp3"],
+      "HASTA_EL_FINAL.mp3" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/totakeke/music/HASTA_EL_FINAL.mp3", "songs/totakeke/music/HASTA_EL_FINAL.mp3"],
+      "LLANERO_TOTA.mp3" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/totakeke/music/LLANERO_TOTA.mp3", "songs/totakeke/music/LLANERO_TOTA.mp3"],
+      "MIRAME_A_LOS_OJOS.mp3" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/totakeke/music/MIRAME_A_LOS_OJOS.mp3", "songs/totakeke/music/MIRAME_A_LOS_OJOS.mp3"],
+      "MISTER_TOTAKEKE.mp3" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/totakeke/music/MISTER_TOTAKEKE.mp3", "songs/totakeke/music/MISTER_TOTAKEKE.mp3"],
+      "MI_HOGAR.mp3" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/totakeke/music/MI_HOGAR.mp3", "songs/totakeke/music/MI_HOGAR.mp3"],
+      "MI_ISLA_MI_HOGAR.mp3" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/totakeke/music/MI_ISLA_MI_HOGAR.mp3", "songs/totakeke/music/MI_ISLA_MI_HOGAR.mp3"],
+      "NAPOLITANA.mp3" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/totakeke/music/NAPOLITANA.mp3", "songs/totakeke/music/NAPOLITANA.mp3"],
+      "NUEVO_HORIZONTE.mp3" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/totakeke/music/NUEVO_HORIZONTE.mp3", "songs/totakeke/music/NUEVO_HORIZONTE.mp3"],
+      "PASEITO.mp3" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/totakeke/music/PASEITO.mp3", "songs/totakeke/music/PASEITO.mp3"],
+      "PASTELITO_SECO.mp3" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/totakeke/music/PASTELITO_SECO.mp3", "songs/totakeke/music/PASTELITO_SECO.mp3"],
+      "REY_TOTA.mp3" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/totakeke/music/REY_TOTA.mp3", "songs/totakeke/music/REY_TOTA.mp3"],
+      "SOLO_YO.mp3" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/totakeke/music/SOLO_YO.mp3", "songs/totakeke/music/SOLO_YO.mp3"],
+      "SOPESANDO.mp3" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/totakeke/music/SOPESANDO.mp3", "songs/totakeke/music/SOPESANDO.mp3"],
+      "TE_QUIERO.mp3" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/totakeke/music/TE_QUIERO.mp3", "songs/totakeke/music/TE_QUIERO.mp3"],
+      "TOTA_2001.mp3" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/totakeke/music/TOTA_2001.mp3", "songs/totakeke/music/TOTA_2001.mp3"],
+      "TOTA_ALCAZABA.mp3" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/totakeke/music/TOTA_ALCAZABA.mp3", "songs/totakeke/music/TOTA_ALCAZABA.mp3"],
+      "TOTA_ALOHA.mp3" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/totakeke/music/TOTA_ALOHA.mp3", "songs/totakeke/music/TOTA_ALOHA.mp3"],
+      "TOTA_AMOR.mp3" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/totakeke/music/TOTA_AMOR.mp3", "songs/totakeke/music/TOTA_AMOR.mp3"],
+      "TOTA_AMORES.mp3" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/totakeke/music/TOTA_AMORES.mp3", "songs/totakeke/music/TOTA_AMORES.mp3"],
+      "TOTA_ANDINA.mp3" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/totakeke/music/TOTA_ANDINA.mp3", "songs/totakeke/music/TOTA_ANDINA.mp3"],
+      "TOTA_ARIA.mp3" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/totakeke/music/TOTA_ARIA.mp3", "songs/totakeke/music/TOTA_ARIA.mp3"],
+      "TOTA_BALADA.mp3" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/totakeke/music/TOTA_BALADA.mp3", "songs/totakeke/music/TOTA_BALADA.mp3"],
+      "TOTA_BANDA_SONORA.mp3" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/totakeke/music/TOTA_BANDA_SONORA.mp3", "songs/totakeke/music/TOTA_BANDA_SONORA.mp3"],
+      "TOTA_BAZAR.mp3" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/totakeke/music/TOTA_BAZAR.mp3", "songs/totakeke/music/TOTA_BAZAR.mp3"],
+      "TOTA_BLUES.mp3" : ["https://github.com/daviiid99/Animal_Crossing_Radio/raw/main/songs/totakeke/music/TOTA_BLUES.mp3", "songs/totakeke/music/TOTA_BLUES.mp3"],
     }
 
   };
@@ -233,30 +320,20 @@ class DownloadModel with Control {
     );
   }
 
-   downloadStoreFile(BuildContext context) async {
+   downloadStoreFile(BuildContext context, List<DownloadModel> pending) async {
     // A method that read Map structure
     // Downloads every file
     // Stores file into a ApplicationDocumentsDirectory subdirectory
 
      totalEntries(){
-
-       int temp = 0;
-
-       for (String game in files.keys){
-         for (String songs in files[game].keys){
-           temp = files[game].keys.length!;
-         }
-         maxEntries += temp;
+       for (DownloadModel download in pending){
+         maxEntries ++;
        }
      }
 
      downloadFile(BuildContext context)  async {
-
-       for (String game in files.keys){
-         for (String song in files[game].keys){
-           DownloadModel currentDownload = DownloadModel(fileName: song, fileUrl: files[game][song][0], filePath: "${DownloadViewState.dataPath.path}/${files[game][song][1]}");
-           download(currentDownload, context);
-         }
+       for (DownloadModel currentDownload in pending){
+         download(currentDownload, context);
        }
      }
 

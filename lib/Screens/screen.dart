@@ -54,3 +54,4 @@ export '../Garden/widgets/animalClock.dart';
 export '../Garden/widgets/actionsContainer.dart';
 export '../DataBases/garden.dart';
 export '../Garden/widgets/navigationMenu.dart';
+export '../Resources/filesIntegrity.dart';
