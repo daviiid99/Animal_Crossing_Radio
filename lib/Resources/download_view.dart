@@ -11,18 +11,32 @@ import 'package:stacked/stacked.dart';
 
 class DownloadView extends StatefulWidget {
   @override
-  DownloadViewState createState() => DownloadViewState();
+  DownloadView({
+    required this.pending,
+  });
+
+  final List<DownloadModel> pending;
+
+  @override
+  DownloadViewState createState() => DownloadViewState(pending: pending);
 }
 
 class DownloadViewState extends State<DownloadView>{
+  @override
+  DownloadViewState({
+    required this.pending,
+  });
+
+  final List<DownloadModel> pending;
 
   DownloadModel downloads = DownloadModel(fileName: "fileName", fileUrl: "fileUrl", filePath: "filePath");
   static Directory dataPath = Directory("path");
 
+
   getDataPath()  {
     setState(() async {
       dataPath = await getApplicationDocumentsDirectory();
-      downloads.downloadStoreFile(context);
+      downloads.downloadStoreFile(context, pending);
     });
 
   }

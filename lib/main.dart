@@ -8,14 +8,11 @@ import 'package:path_provider/path_provider.dart';
 
 void main() async  {
 
-  if (Directory("data/user/0/com.daviiid99.ac_radio/app_flutter/songs/gc").existsSync()
-      && Directory("data/user/0/com.daviiid99.ac_radio/app_flutter/songs/ds").existsSync()
-      && Directory("data/user/0/com.daviiid99.ac_radio/app_flutter/songs/wii").existsSync()
-      && Directory("data/user/0/com.daviiid99.ac_radio/app_flutter/songs/3ds").existsSync()
-      && Directory("data/user/0/com.daviiid99.ac_radio/app_flutter/songs/switch").existsSync()){
-    runApp(Login());
+  List<DownloadModel> pending = await FilesIntegrity.checkFiles();
+  if (pending.isNotEmpty){
+    runApp(Downloader(pending : pending));
   } else {
-    runApp(Downloader());
+    runApp(Login());
   }
 }
 
@@ -33,9 +30,17 @@ class Login extends StatelessWidget{
 
 class Downloader extends StatelessWidget{
   @override
+  const Downloader({
+    required this.pending,
+    super.key,
+  });
+
+  final List<DownloadModel> pending;
+
+  @override
   Widget build(BuildContext context){
     return MaterialApp(
-      home: DownloadView(),
+      home: DownloadView(pending: pending,),
       debugShowCheckedModeBanner: false,
       debugShowMaterialGrid: false,
     );
