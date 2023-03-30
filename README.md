@@ -4,7 +4,13 @@
 ![Dart](https://img.shields.io/badge/dart-%230175C2.svg?style=for-the-badge&logo=dart&logoColor=white)
 
 # Animal Crossing Radio
-Aplicación de música basada en Animal Crossing completamente offline!
+Aplicación de música basada en Animal Crossing completamente offline*!
+
+```
+Debido a limitaciones de Google Play Store, la primera vez que se ejecuta la aplicación
+se descargarán aproximadamente 1GB de datos adicionales.
+Puede que futuras actualizaciones requieran descargar datos adicionales.
+```
 
 # Compatibilidad
 - [x] android
