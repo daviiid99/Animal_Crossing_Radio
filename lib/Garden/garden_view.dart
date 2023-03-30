@@ -5,7 +5,7 @@ import 'package:stacked/stacked.dart';
 
 import '../Screens/screen.dart';
 
-class GardenView extends StackedView<GardenModel>{
+class GardenView extends StackedView<GardenModel> with Control{
   @override
   Widget builder(
       BuildContext context,
@@ -17,7 +17,7 @@ class GardenView extends StackedView<GardenModel>{
     AssetGenerator asset = AssetGenerator(garden: viewModel.currentGarden);
 
     return WillPopScope(
-      onWillPop: ()=> viewModel.stopServices(),
+      onWillPop: ()=> stopServices(viewModel.player, context),
         child: Stack(
           children: [
             // Background

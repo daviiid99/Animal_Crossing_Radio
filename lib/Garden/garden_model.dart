@@ -245,10 +245,6 @@ class GardenModel extends BaseViewModel implements Initialisable {
       player.play(DeviceFileSource(currentTheme));
     }
 
-    stopServices(){
-      player.stop();
-    }
-
     compareDuration(String total, String current){
     // This method received current song Duration
       if (current ==  total){
