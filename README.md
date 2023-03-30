@@ -7,8 +7,8 @@
 Aplicación de música basada en Animal Crossing completamente offline!
 
 # Compatibilidad
-[x] android
-[x] iOS
+- [x] android
+- [x] iOS
 
 # Dependencias
 En el estado actual del proyecto, las dependencias usadas son las siguientes
@@ -17,6 +17,11 @@ En el estado actual del proyecto, las dependencias usadas son las siguientes
   flutter_launcher_icons: ^0.11.0
   audioplayers: ^3.0.1
   sqflite: ^2.2.4+1
+  stacked: ^3.2.0
+  stacked_services: ^1.0.0
+  download_assets: ^3.0.3
+  dio: ^4.0.6
+  path_provider: ^2.0.14
 ```
 
 # Capturas de pantalla
@@ -27,6 +32,10 @@ Pantalla inicial donde el usuario puede iniciar sesión o crear una cuenta
 
 <img src="screens/screen_create_account.png" with="400" height="700">
 <br/>
+
+## Pantalla de Carga
+Pantalla que muestra al usuario recomendaciones cada vez que inicia sesión en la app
+<img src="screens/loading_screen.png" with="400" height="700">
 
 ## Pantalla de Titulo
 Pantalla donde se mostrará la información relativa a novedades en la aplicación,
@@ -86,7 +95,7 @@ Selecciona un disco, cargalo, elige una canción y dale al play!
 ### Conciertos
 A partir de las 20:00, podrás disfrutar de una canción Aleatoria de Totakeke.
 
-<img src="screens/stage_screen.png" with="400" height="700">
+<img src="screens/stage_screen.png"c>
 <br/>
 
 ### Tienda
@@ -98,5 +107,5 @@ Lugar donde podrás adquirir canciones que falten en tu colección
 ### Jardín
 Lugar donde podrás recolectar todo tipo de objetos con los que obtener dinero.
 (Se proveerá más información de esta función en el futuro)
-
+<img src="screens/garden_screen.png" with="400" height="700">
 
