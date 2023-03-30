@@ -107,5 +107,6 @@ Lugar donde podrás adquirir canciones que falten en tu colección
 ### Jardín
 Lugar donde podrás recolectar todo tipo de objetos con los que obtener dinero.
 (Se proveerá más información de esta función en el futuro)
+
 <img src="screens/garden_screen.png" with="400" height="700">
 
