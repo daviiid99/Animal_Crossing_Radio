@@ -16,20 +16,23 @@ class GardenView extends StackedView<GardenModel>{
     NavigationMenu navBar = NavigationMenu(viewModel: viewModel);
     AssetGenerator asset = AssetGenerator(garden: viewModel.currentGarden);
 
-    return Stack(
-      children: [
-        // Background
-         asset,
+    return WillPopScope(
+      onWillPop: ()=> viewModel.stopServices(),
+        child: Stack(
+          children: [
+            // Background
+             asset,
 
-        // Menu
-        AnimalClock(),
+            // Menu
+            AnimalClock(),
 
-        // Bottom Menu
-        ActionsContainer(),
+            // Bottom Menu
+            ActionsContainer(),
 
-        // Navigation Button
-        navBar,
-      ],
+            // Navigation Button
+            navBar,
+          ],
+        ),
     );
   }
 

@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:animal_crossing_radio/LoginScreen/loginScreen.dart';
 import 'package:animal_crossing_radio/main.dart';
 import 'package:flutter/material.dart';
@@ -58,6 +60,8 @@ class HomeState extends State<Home> with Control{
   AnnouncementDataBase announcementDataBase = AnnouncementDataBase(date : "");
   String currentDate = "";
   bool choosedOption = false;
+  Directory path = Directory("data/user/0/com.daviiid99.ac_radio/app_flutter");
+
 
   @override
   void initState()  {
@@ -210,7 +214,7 @@ class HomeState extends State<Home> with Control{
     if(isPlaying){
       await player.pause();
     }
-    await player.play(AssetSource(nintendoEffect[sound.nextInt(4)].replaceAll("assets/", "")));
+    await player.play(DeviceFileSource("${path.path}/${nintendoEffect[sound.nextInt(4)].replaceAll("assets/", "")}"));
   }
 
   playSound() async {
